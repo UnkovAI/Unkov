@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="description" content="Unkov: AI-native identity orchestration for the agentic enterprise." />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Unkov — AI-Native Identity Governance</title>
+
+    <!-- Inter font — 400/500 body weight, 600 headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Force light mode before React loads -->
+    <script>
+      (function() {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.style.colorScheme = 'light';
+        try { localStorage.removeItem('theme'); } catch(e) {}
+        var origAdd = DOMTokenList.prototype.add;
+        DOMTokenList.prototype.add = function() {
+          var args = Array.prototype.slice.call(arguments).filter(function(c){ return c !== 'dark'; });
+          if (args.length) origAdd.apply(this, args);
+        };
+      })();
+    </script>
+    <style>
+      html, body { background: #faf9f7 !important; color: #1d1d1f !important; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
